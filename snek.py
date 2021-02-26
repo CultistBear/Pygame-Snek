@@ -32,6 +32,8 @@ def Game():
                         GameOver=True
             pygame.display.update()
         for event in pygame.event.get():
+            if event.type==pygame.QUIT:
+                GameOver=True
             if event.type==pygame.KEYDOWN:
                 if event.key==pygame.K_RIGHT:
                     SnekPosXMove=10
