@@ -38,8 +38,6 @@ def Game():
             if event.type==pygame.QUIT:
                 Lost=False
                 GameOver=True
-            if event.type==pygame.QUIT:
-                GameOver=True
             if event.type==pygame.KEYDOWN:
                 if event.key==pygame.K_RIGHT:
                     SnekPosXMove=10
