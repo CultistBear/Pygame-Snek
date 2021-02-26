@@ -1,5 +1,7 @@
 import pygame
 import random
+import sys
+
 pygame.init()
 
 screen=pygame.display.set_mode((600,600))
@@ -24,20 +26,26 @@ def Game():
             screen.blit((pygame.font.SysFont("comicsansms", 20).render("Do You Wish To Play Again?", True, (255,0,0))),(200,400))
             screen.blit((pygame.font.SysFont("comicsansms", 20).render("Press c to Continue or Press q to exit", True, (255,0,0))),(150,500))
             for event in pygame.event.get():
+                if event.type==pygame.QUIT:
+                    Lost=False
+                    GameOver=True
+                    pygame.quit()
+                    sys.exit()
                 if event.type==pygame.KEYDOWN:
-                    if event.type==pygame.QUIT:
-                        Lost=False
-                        GameOver=True
                     if event.key==pygame.K_c:
                         Game()
                     elif event.key==pygame.K_q:
                         Lost=False
                         GameOver=True
+                        pygame.quit()
+                        sys.exit()
             pygame.display.update()
         for event in pygame.event.get():
             if event.type==pygame.QUIT:
                 Lost=False
                 GameOver=True
+                pygame.quit()
+                sys.exit()
             if event.type==pygame.KEYDOWN:
                 if event.key==pygame.K_RIGHT:
                     SnekPosXMove=10
